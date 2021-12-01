@@ -39,4 +39,4 @@ jobs:
         run: sfdx force:auth:sfdxurl:store -f TGT_SBX -s -a QA_SBX
         
       - name: 'Run Tests'
-        run: sfdx force:apex:test:run
+        run: sfdx force:apex:test:run -l RunLocalTests
