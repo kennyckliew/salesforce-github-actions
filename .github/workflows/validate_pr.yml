@@ -31,4 +31,9 @@ jobs:
             echo "$HOME/sfdx/bin" >> $GITHUB_PATH
             ~/sfdx/bin/sfdx version
                   
+      - name: 'Create file containing target org details used with auth sfdx command'
+        shell: bash
+        run: 'echo ${{secrets.QA_ORG_URL}} > TGT_SBX'
 
+      - name: 'Authenticate against Target / QA Sandbox'
+        run: sfdx:auth:sfdxurl:store -f TGT_SBX -s -a QA_SBX
