@@ -37,6 +37,9 @@ jobs:
 
       - name: 'Authenticate against Target / QA Sandbox'
         run: sfdx force:auth:sfdxurl:store -f TGT_SBX -s -a QA_SBX
+
+      - name: 'Push source to scratch org'
+        run: sfdx force:source:push
         
       - name: 'Run Tests'
         run: sfdx force:apex:test:run -l RunLocalTests
