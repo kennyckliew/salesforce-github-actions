@@ -36,7 +36,7 @@ jobs:
         run: 'echo ${{secrets.QA_ORG_URL}} > TGT_SBX'
 
       - name: 'Authenticate against Target / QA Sandbox'
-        run: sfdx:auth:sfdxurl:store -f TGT_SBX -s -a QA_SBX
+        run: sfdx force:auth:sfdxurl:store -f TGT_SBX -s -a QA_SBX
         
       - name: 'Run Tests'
         run: sfdx force:apex:test:run
